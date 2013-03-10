@@ -11,7 +11,7 @@ header {
 }
 
 #main-wrap {
-	width: 1024px;
+	width: 974px;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
@@ -23,11 +23,11 @@ header {
 	background: #ececec;
 	box-shadow: 4px 4px 0 #666;
 	border-radius: 10px;
-	padding: 25px 0;
+	padding: 25px;
 }
 
 form {
-	margin-left: 25px;
+	width: 42%;
 	display: block;
 	float: left;
 }
@@ -43,4 +43,15 @@ form label[required]:before {
 }
 form .control-group:last-child {
 	margin-bottom: 0;
+}
+
+.live {
+	float: right;
+	width: 57%;
+}
+
+.live textarea {
+	width: 100%;
+	max-width: 530px;
+	min-height: 164px;
 }
