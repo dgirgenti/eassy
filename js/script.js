@@ -1,8 +1,16 @@
 var Eassy = Eassy || {};
 
 Eassy.Index = $(document).ready(function() {
-	console.log(Eassy.parseCSS(Eassy.getCSSJSON()))
-	console.log(Eassy.parseCSS(Eassy.getCSSJSON(),true))
+	$('.colorpicker').colorpicker({format:"rgba"}).on('changeColor', function(ev){
+		rgba = ev.color.toRGB() 
+  	$(this).val("rgba(" 
+  		+ rgba.r + ","
+  		+ rgba.g + ","
+  		+ rgba.b + ","
+  		+ rgba.a + ")")
+	});
+	//console.log(Eassy.parseCSS(Eassy.getCSSJSON()))
+	//console.log(Eassy.parseCSS(Eassy.getCSSJSON(),true))
 });
 
 
@@ -29,7 +37,9 @@ Eassy.parseCSS = function (cssJSON, sass) {
 		return css
 }
 
-Eassy.getCSSJSON = function () {
+Eassy.getCSSJSON = function (form) {
+		selector = $('#selector').val()
+		/* 
 		return [
 		{
 			"selector" : "body",
@@ -57,5 +67,5 @@ Eassy.getCSSJSON = function () {
 				}
 			]
 		}
-	]
+	] */
 }
