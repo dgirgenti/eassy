@@ -49,6 +49,10 @@ Eassy.parseCSS = function (cssJSON, sass) {
 	return css
 }
 
+
+// Grabs all input values from given form
+// and returns the JSON representation
+//
 Eassy.getCSSJSON = function (form) {
 	selector = $('#selector').val() || "*"
 	props = []
