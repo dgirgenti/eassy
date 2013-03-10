@@ -5,9 +5,16 @@ body {
 }
 
 header {
-	height: 30px;
-	background: #111;
+	background: #333;
 	margin-bottom: 25px;
+	padding:25px;
+	box-shadow: 0 2px rgba(255,255,255,0.2);
+}
+
+h1 {
+	margin: 0;
+	color: #ececec;
+	text-align: center;
 }
 
 #main-wrap {
@@ -21,13 +28,13 @@ header {
 .class-wrap {
 	width: 100%;
 	background: #ececec;
-	box-shadow: 4px 4px 0 #666;
+	box-shadow: 3px 3px 0 rgba(102, 102, 102, 0.8);
 	border-radius: 10px;
 	padding: 25px;
 }
 
 form {
-	width: 42%;
+	width: 50%;
 	display: block;
 	float: left;
 }
@@ -45,13 +52,18 @@ form .control-group:last-child {
 	margin-bottom: 0;
 }
 
+.input-tiny {
+	width: 27px;
+}
+
 .live {
-	float: right;
-	width: 57%;
+	float: left;
+	width: 49%;
 }
 
 .live textarea {
 	width: 100%;
-	max-width: 530px;
-	min-height: 164px;
+	min-width: 100px;
+	max-width: 100%;
+	min-height: 176px;
 }

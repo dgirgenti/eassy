@@ -3,8 +3,10 @@ var Eassy = Eassy || {};
 Eassy.Index = $(document).ready(function() {
 	$('.colorpicker').colorpicker({format:"rgba"})
 		.on('changeColor', function(ev){
-		  $(this).val(Eassy.RGBObjToString(ev.color.toRGB()))
-		  $(this).trigger('change')
+			rgbastring = Eassy.RGBObjToString(ev.color.toRGB())
+			$(this).siblings('.add-on').css("background-color", rgbastring)
+			$(this).val(rgbastring)
+			$(this).trigger('change')
 		})
 	$('form').change(function() {
 		$('.live textarea').val(Eassy.parseCSS(Eassy.getCSSJSON()))
@@ -48,14 +50,16 @@ Eassy.parseCSS = function (cssJSON, sass) {
 }
 
 Eassy.getCSSJSON = function (form) {
-	selector = $('#selector').val()
+	selector = $('#selector').val() || "*"
 	props = []
 	$('input[id!=selector]').each(function() {
-		append = $(this).siblings('.add-on:last-child').html() || ""
-		props.push({
-			"prop" : $(this).parents('.controls').siblings('label').attr('for'),
-			"attr" : $(this).val() + append
-		})
+		if ($(this).val()) {
+			append = $(this).siblings('.add-on:last-child').html() || ""
+			props.push({
+				"prop" : $(this).attr('id'),
+				"attr" : $(this).val() + append
+			})
+		}
 	})
 	return [{
 		"selector" : selector,
