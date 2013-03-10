@@ -18,19 +18,29 @@
 				<div class="control-group">
 					<label class="control-label" for="selector" required>selector</label>
 					<div class="controls">
-						<input type="text" id="selector" required/>
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-tags"></i></span>
+							<input class="input-medium" type="text" id="selector" required/>
+						</div>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="bg-color">background color</label>
 					<div class="controls">
-						<input class="colorpicker" type="text" id="bg-color" />
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-tint"></i></span>
+							<input class="colorpicker input-medium" type="text" id="bg-color" />
+						</div>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="border-radius" required>border-radius</label>
+					<label class="control-label" for="border-radius">border-radius</label>
 					<div class="controls">
-						<input type="text" id="border-radius"/>
+						<div class="input-append input-prepend">
+							<span class="add-on"><i class="icon-edit"></i></span>
+							<input class="input-medium" type="text" id="border-radius"/>
+							<span class="add-on">px</span>
+						</div>
 					</div>
 				</div>
 			</form>

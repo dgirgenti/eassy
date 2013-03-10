@@ -1,18 +1,24 @@
 var Eassy = Eassy || {};
 
 Eassy.Index = $(document).ready(function() {
-	$('.colorpicker').colorpicker({format:"rgba"}).on('changeColor', function(ev){
-		rgba = ev.color.toRGB() 
-  	$(this).val("rgba(" 
-  		+ rgba.r + ","
-  		+ rgba.g + ","
-  		+ rgba.b + ","
-  		+ rgba.a + ")")
-	});
+	$('.colorpicker').colorpicker({format:"rgba"})
+		.on('changeColor', function(ev){
+	  	$(this).val(Eassy.RGBObjToString(ev.color.toRGB()))
+		});
 	//console.log(Eassy.parseCSS(Eassy.getCSSJSON()))
 	//console.log(Eassy.parseCSS(Eassy.getCSSJSON(),true))
 });
 
+// Takes in an RGBA object and returns it
+// as a string in rgba(r,g,b,a) format
+// 
+Eassy.RGBObjToString = function (rgba) {
+  	return "rgba(" 
+  		+ rgba.r + ","
+  		+ rgba.g + ","
+  		+ rgba.b + ","
+  		+ rgba.a + ")"
+}
 
 // Takes in a set of CSS JSON objects and an 
 // optional boolean to denote SASS output 
