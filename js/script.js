@@ -5,7 +5,7 @@ Eassy.Index = $(document).ready(function() {
 		size: 4
 	})
 	$('.colorpicker').colorpicker({format:"rgba"})
-		.on('changeColor', function(ev){
+		.on('changeColor show hide', function(ev){
 			rgbastring = Eassy.RGBObjToString(ev.color.toRGB())
 			$(this).siblings('.add-on.color').css("background-color", rgbastring)
 			$(this).val(rgbastring)
@@ -20,9 +20,16 @@ Eassy.Index = $(document).ready(function() {
 			else if ($(this).html() == "px") $(this).html("em")
 			$(this).siblings('input').trigger('change')
 		})
+		return false
 	})
-	//console.log(Eassy.parseCSS(Eassy.getCSSJSON()))
-	//console.log(Eassy.parseCSS(Eassy.getCSSJSON(),true))
+	$('.control-group').not('.selector-wrap').each(function() {
+		$(this).append('<a href="#" class="minus">x</a>')
+	})
+	$('.minus').on('click', function() {
+		$(this).parent().remove()
+		$('form').trigger('change')
+		return false
+	})
 });
 
 // Takes in an RGBA object and returns it
@@ -52,6 +59,7 @@ Eassy.parseCSS = function (cssJSON, sass) {
 		for (j in cssJSON[i].properties) {
 			p = cssJSON[i].properties[j]
 			css += "\t" + p.prop + ": " + p.attr + ";\n"
+			$('#test').css(p.prop,p.attr)
 		}
 		if (!sass) css += "}"
 		css += "\n"
@@ -69,7 +77,7 @@ Eassy.getCSSJSON = function (form) {
 	$('input[id!=selector],.selectpicker').each(function() {
 		if ($(this).val()) {
 			append = $(this).siblings('.add-on.unit').html() || ""
-			if ($(this).not('input')) append = ""
+			if ($(this).is('.selectpicker,.colorpicker')) append = ""
 			props.push({
 				"prop" : $(this).attr('id'),
 				"attr" : $(this).val() + append
@@ -81,3 +89,14 @@ Eassy.getCSSJSON = function (form) {
 		"properties" : props
 	}]
 }
+
+Eassy.Properties = [
+		"selector",
+		"background-color",
+		"padding-all",
+		"padding-one",
+		"margin-all",
+		"margin-one",
+		"border-radius",
+		"border"
+]
