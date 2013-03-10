@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: url('/img/bg.png');
+	text-shadow: 1px 1px rgba(231,231,231,0.4);
 }
 
 header {
@@ -18,7 +19,7 @@ h1 {
 }
 
 #main-wrap {
-	width: 974px;
+	width: 1024px;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
@@ -26,11 +27,12 @@ h1 {
 }
 
 .class-wrap {
-	width: 100%;
+	width: 974px;
 	background: #ececec;
 	box-shadow: 3px 3px 0 rgba(102, 102, 102, 0.8);
 	border-radius: 10px;
 	padding: 25px;
+	margin-bottom: 25px;
 }
 
 form {
@@ -40,6 +42,7 @@ form {
 }
 form label {
 	text-transform: capitalize;
+	font-weight: bold;
 }
 form label:after {
 	content: " :";
@@ -51,11 +54,37 @@ form label[required]:before {
 form .control-group:last-child {
 	margin-bottom: 0;
 }
-
+.form-horizontal .control-label {
+	width: 136px;
+}
+.form-horizontal .controls {
+	margin-left: 150px;
+}
+form input, 
+.input-prepend input, 
+.input-append input {
+	font-size: 13px;
+}
+.input-prepend.input-append select+.btn-group .btn,
+.input-prepend select, 
+.input-append select {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.bootstrap-select.btn-group .btn .filter-option {
+	left: 6px;
+}
+input[type=text]:last-child,
+select:last-child {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+select {
+	text-transform: capitalize;
+}
 .input-tiny {
 	width: 27px;
 }
-
 .live {
 	float: left;
 	width: 49%;
@@ -66,4 +95,13 @@ form .control-group:last-child {
 	min-width: 100px;
 	max-width: 100%;
 	min-height: 176px;
+}
+
+.bootstrap-select.btn-group, .bootstrap-select.btn-group[class*="span"] {
+	margin-bottom:0;
+}
+
+.bootstrap-select.btn {
+	padding: 0;
+	border-radius: 0;
 }

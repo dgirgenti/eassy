@@ -5,7 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<title>EaSSy</title>
+	<link rel="stylesheet" href="/css/bootstrap-select.min.css" />
 	<link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" />
+	
 	<link rel="stylesheet" href="/css/colorpicker.css" />
 	<link rel="stylesheet" href="/css/normalize.css" />
 	<link rel="stylesheet" href="/css/main.css" />
@@ -15,71 +17,112 @@
 	<div id="main-wrap">
 		<div class="class-wrap">
 			<form class="form-horizontal">
-				<div class="control-group">
+				<div class="control-group selector-wrap">
 					<label class="control-label" for="selector">selector</label>
 					<div class="controls">
 						<div class="input-prepend">
 							<span class="add-on"><i class="icon-tags"></i></span>
-							<input class="input-medium" type="text" id="selector" placeholder="body, div, span"/>
+							<input class="input-small" type="text" id="selector" />
 						</div>
 					</div>
 				</div>
-				<div class="control-group">
+				<div class="control-group background-color-wrap">
 					<label class="control-label" for="background-color">background color</label>
 					<div class="controls">
 						<div class="input-prepend">
-							<span class="add-on"><i class="icon-tint"></i></span>
-							<input class="colorpicker input-medium" type="text" id="background-color" />
+							<span class="add-on color"><i class="icon-tint"></i></span>
+							<input class="colorpicker input-small" type="text" id="background-color" />
 						</div>
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="padding">padding</label>
+				<div class="control-group padding-all-wrap">
+					<label class="control-label" for="padding-top">padding</label>
 					<div class="controls">
 						<div class="input-append input-prepend">
 							<span class="add-on"><i class="icon-indent-left"></i></span>
 							<input class="input-tiny" type="text" id="padding-top"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 							<input class="input-tiny" type="text" id="padding-right"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 							<input class="input-tiny" type="text" id="padding-bottom"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 							<input class="input-tiny" type="text" id="padding-left"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 						</div>
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="margin">margin</label>
+				<div class="control-group padding-one-wrap">
+					<label class="control-label" for="padding">padding</label>
+					<div class="controls">
+						<div class="input-append input-prepend">
+							<span class="add-on"><i class="icon-indent-left"></i></span>
+							<input class="input-tiny" type="text" id="padding"/>
+							<span class="add-on unit">px</span>
+						</div>
+					</div>
+				</div>
+				<div class="control-group margin-all-wrap">
+					<label class="control-label" for="margin-top">margin</label>
 					<div class="controls">
 						<div class="input-append input-prepend">
 							<span class="add-on"><i class="icon-fullscreen"></i></span>
 							<input class="input-tiny" type="text" id="margin-top"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 							<input class="input-tiny" type="text" id="margin-right"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 							<input class="input-tiny" type="text" id="margin-bottom"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 							<input class="input-tiny" type="text" id="margin-left"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 						</div>
 					</div>
 				</div>
-				<div class="control-group">
+				<div class="control-group margin-one-wrap">
+					<label class="control-label" for="margin">margin</label>
+					<div class="controls">
+						<div class="input-append input-prepend">
+							<span class="add-on"><i class="icon-fullscreen"></i></span>
+							<input class="input-tiny" type="text" id="margin"/>
+							<span class="add-on unit">px</span>
+						</div>
+					</div>
+				</div>				
+				<div class="control-group border-radius-wrap">
 					<label class="control-label" for="border-radius">border-radius</label>
 					<div class="controls">
 						<div class="input-append input-prepend">
 							<span class="add-on"><i class="icon-edit"></i></span>
 							<input class="input-tiny" type="text" id="border-radius"/>
-							<span class="add-on">px</span>
+							<span class="add-on unit">px</span>
 						</div>
 					</div>
 				</div>
+				<div class="control-group border-wrap">
+					<label class="control-label" for="border-size">border</label>
+					<div class="controls">
+						<div class="input-append btn-group input-prepend">
+							<span class="add-on"><i class="icon-edit"></i></span>
+							<input class="input-tiny" type="text" id="border-size"/>
+							<span class="add-on unit">px</span>
+							<select class="selectpicker span1 input-small" id="border-style">
+								<option>solid</option>
+								<option>dotted</option>
+								<option>dashed</option>
+							</select>
+							<input class="colorpicker input-small" type="text" id="border-color" />
+							<span class="add-on color">&nbsp;</span>
+						</div>
+					</div>
+				</div>				
 			</form>
 			<div class="live">
 				<textarea rows="3"></textarea>
 			</div>
 			<div class="clear">&nbsp;</div>
+			<a href="#" id="units">px/em</a>
+		</div>
+		<div class="class-wrap">
+			<div id="test">&nbsp;</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -87,6 +130,7 @@
 		window.jQuery || document.write('<script src="/js/jquery-1.9.1.min.js"><\/script>')
 	</script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap-select.min.js"></script>
 	<script src="/js/bootstrap-colorpicker.js"></script>
 	<script src="/js/script.js"></script>
 </body>

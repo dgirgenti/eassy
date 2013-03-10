@@ -1,15 +1,25 @@
 var Eassy = Eassy || {};
 
 Eassy.Index = $(document).ready(function() {
+	$('.selectpicker').selectpicker({
+		size: 4
+	})
 	$('.colorpicker').colorpicker({format:"rgba"})
 		.on('changeColor', function(ev){
 			rgbastring = Eassy.RGBObjToString(ev.color.toRGB())
-			$(this).siblings('.add-on').css("background-color", rgbastring)
+			$(this).siblings('.add-on.color').css("background-color", rgbastring)
 			$(this).val(rgbastring)
 			$(this).trigger('change')
 		})
 	$('form').change(function() {
 		$('.live textarea').val(Eassy.parseCSS(Eassy.getCSSJSON()))
+	})
+	$('#units').click(function() {
+		$('.add-on.unit').each(function() {
+			if ($(this).html() == "em") $(this).html("px")
+			else if ($(this).html() == "px") $(this).html("em")
+			$(this).siblings('input').trigger('change')
+		})
 	})
 	//console.log(Eassy.parseCSS(Eassy.getCSSJSON()))
 	//console.log(Eassy.parseCSS(Eassy.getCSSJSON(),true))
@@ -56,9 +66,10 @@ Eassy.parseCSS = function (cssJSON, sass) {
 Eassy.getCSSJSON = function (form) {
 	selector = $('#selector').val() || "*"
 	props = []
-	$('input[id!=selector]').each(function() {
+	$('input[id!=selector],.selectpicker').each(function() {
 		if ($(this).val()) {
-			append = $(this).siblings('.add-on:last-child').html() || ""
+			append = $(this).siblings('.add-on.unit').html() || ""
+			if ($(this).not('input')) append = ""
 			props.push({
 				"prop" : $(this).attr('id'),
 				"attr" : $(this).val() + append
