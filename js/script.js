@@ -1,9 +1,16 @@
 var Eassy = Eassy || {};
 
 Eassy.Index = $(document).ready(function() {
+	for (i in Eassy.Properties) {
+		Eassy.classHTML[Eassy.Properties[i]] = $('.'+Eassy.Properties[i]+'-wrap').html().replace(/\t/g, "")
+		$('.live textarea').val($('.live textarea').val() + "\n'" + Eassy.Properties[i] + "\' : \'" 
+			+ Eassy.classHTML[Eassy.Properties[i]] + "\'")
+	}
+	
 	$('.selectpicker').selectpicker({
 		size: 4
 	})
+
 	$('.colorpicker').colorpicker({format:"rgba"})
 		.on('changeColor show hide', function(ev){
 			rgbastring = Eassy.RGBObjToString(ev.color.toRGB())
@@ -11,20 +18,23 @@ Eassy.Index = $(document).ready(function() {
 			$(this).val(rgbastring)
 			$(this).trigger('change')
 		})
+
 	$('form').on('change', function() {
 		$('.live textarea').val(Eassy.parseCSS(Eassy.getCSSJSON()))
 	})
-	$('#units').on('click', function() {
-		$('.add-on.unit').each(function() {
-			if ($(this).html() == "em") $(this).html("px")
-			else if ($(this).html() == "px") $(this).html("em")
-			$(this).siblings('input').trigger('change')
-		})
+
+	$('.add-on.unit').on('click', function() {
+		if ($(this).html() == "em") $(this).html("%")
+		else if ($(this).html() == "px") $(this).html("em")
+		else if ($(this).html() == "%") $(this).html("px")
+		$('form').trigger('change')
 		return false
 	})
+
 	$('.control-group').not('.selector-wrap').each(function() {
 		$(this).append('<a href="#" class="minus"><i class="icon-remove-sign"></i></a>')
 	})
+
 	$('.minus').on({
 		click: function() {
 			$(this).parent().remove()
@@ -59,7 +69,6 @@ Eassy.RGBObjToString = function (rgba) {
 // parseCSS(cssJSON[,sass])
 //
 Eassy.parseCSS = function (cssJSON, sass) {
-	sass = sass || false
 	css = ""
 	for (i in cssJSON) {
 		css += cssJSON[i].selector
@@ -84,11 +93,12 @@ Eassy.getCSSJSON = function (form) {
 	props = []
 	$('input[id!=selector],.selectpicker').each(function() {
 		if ($(this).val()) {
+			prepend = ""
 			append = $(this).siblings('.add-on.unit').html() || ""
 			if ($(this).is('.selectpicker,.colorpicker')) append = ""
 			props.push({
 				"prop" : $(this).attr('id'),
-				"attr" : ($(this).val()!=0)?$(this).val()+append:$(this).val()
+				"attr" : ($(this).val()!=0)?prepend+$(this).val()+append:prepend+$(this).val()
 			})
 		}
 	})
@@ -98,13 +108,22 @@ Eassy.getCSSJSON = function (form) {
 	}]
 }
 
+Eassy.classHTML = {}
+
 Eassy.Properties = [
-		"selector",
-		"background-color",
-		"padding-all",
-		"padding-one",
-		"margin-all",
-		"margin-one",
-		"border-radius",
-		"border"
+	"selector",
+	"background-color",
+	"padding-all",	
+	"padding-one",
+	"margin-all",
+	"margin-one",
+	"border-radius",
+	"border",
+	"font-size",
+	"font-weight",
+	"font-family",
+	"color",
+	"letter-spacing",
+	"word-spacing",
+	"text-indent"
 ]
