@@ -1,11 +1,11 @@
 var Eassy = Eassy || {};
 
 Eassy.Index = $(document).ready(function() {
-	for (i in Eassy.Properties) {
+	/*for (i in Eassy.Properties) {
 		Eassy.classHTML[Eassy.Properties[i]] = $('.'+Eassy.Properties[i]+'-wrap').html().replace(/\t/g, "")
 		$('.live textarea').val($('.live textarea').val() + "\n'" + Eassy.Properties[i] + "\' : \'" 
 			+ Eassy.classHTML[Eassy.Properties[i]] + "\'")
-	}
+	}*/
 	
 	$('.selectpicker').selectpicker({
 		size: 4
