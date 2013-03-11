@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!--
+	Author: Dan Girgenti
+-->
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -16,6 +19,10 @@
 	<header><h1>EaSSy</h1></header>
 	<div id="main-wrap">
 		<div class="class-wrap">
+			<div class="add-wrap">
+				<select class="selectpicker" id="add-select"></select>
+				<a href="#" class="btn" id="plus"><i class="icon-plus-sign"></i> Add</a>
+			</div>
 			<form class="form-horizontal">
 				<div class="control-group selector-wrap">
 					<label class="control-label" for="selector">selector</label>
@@ -26,174 +33,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="control-group background-color-wrap">
-					<label class="control-label" for="background-color">background color</label>
-					<div class="controls">
-						<div class="input-prepend input-append">
-							<span class="add-on"><i class="icon-tint"></i></span>
-							<input class="colorpicker input-small" type="text" id="background-color" />
-							<span class="add-on color">&nbsp;</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group padding-all-wrap">
-					<label class="control-label" for="padding-top">padding</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-indent-left"></i></span>
-							<input class="input-tiny" type="text" id="padding-top"/>
-							<input class="input-tiny" type="text" id="padding-right"/>
-							<input class="input-tiny" type="text" id="padding-bottom"/>
-							<input class="input-tiny" type="text" id="padding-left"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group padding-one-wrap">
-					<label class="control-label" for="padding">padding</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-indent-left"></i></span>
-							<input class="input-tiny" type="text" id="padding"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group margin-all-wrap">
-					<label class="control-label" for="margin-top">margin</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-fullscreen"></i></span>
-							<input class="input-tiny" type="text" id="margin-top"/>
-							<input class="input-tiny" type="text" id="margin-right"/>
-							<input class="input-tiny" type="text" id="margin-bottom"/>
-							<input class="input-tiny" type="text" id="margin-left"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group margin-one-wrap">
-					<label class="control-label" for="margin">margin</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-fullscreen"></i></span>
-							<input class="input-tiny" type="text" id="margin"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group border-radius-wrap">
-					<label class="control-label" for="border-radius">border radius</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-edit"></i></span>
-							<input class="input-tiny" type="text" id="border-radius"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group border-wrap">
-					<label class="control-label" for="border-width">border</label>
-					<div class="controls">
-						<div class="input-append btn-group input-prepend">
-							<span class="add-on"><i class="icon-edit"></i></span>
-							<input class="input-tiny" type="text" id="border-width"/>
-							<span class="add-on unit">px</span>
-							<select class="selectpicker span1 input-small" id="border-style">
-								<option></option>
-								<option>solid</option>
-								<option>dotted</option>
-								<option>dashed</option>
-							</select>
-							<input class="colorpicker input-small" type="text" id="border-color" />
-							<span class="add-on color">&nbsp;</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group font-size-wrap">
-					<label class="control-label" for="font-size">font size</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-text-height"></i></span>
-							<input class="input-tiny" type="text" id="font-size"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group color-wrap">
-					<label class="control-label" for="color">font color</label>
-					<div class="controls">
-						<div class="input-prepend input-append">
-							<span class="add-on"><i class="icon-pencil"></i></span>
-							<input class="colorpicker input-small" type="text" id="color" />
-							<span class="add-on color">&nbsp;</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group font-weight-wrap">
-					<label class="control-label" for="font-weight">font weight</label>
-					<div class="controls">
-						<div class="input-prepend btn-group">
-							<span class="add-on"><i class="icon-bold"></i></span>
-							<select class="selectpicker span2 input-small" id="font-weight">
-								<option></option>
-								<option>normal</option>
-								<option>bold</option>
-								<option>bolder</option>
-								<option>thin</option>
-								<option>thinner</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="control-group font-family-wrap">
-					<label class="control-label" for="font-family">font family</label>
-					<div class="controls">
-						<div class="input-prepend btn-group">
-							<span class="add-on"><i class="icon-font"></i></span>
-							<select class="selectpicker" id="font-family">
-								<option></option>
-								<option>Arial, Helvetica, sans-serif</option>
-								<option>Helvetica, Arial, sans-serif</option>
-								<option>"Helvetica Neue", Helvetica Neue, Helvetica, Arial, sans-serif</option>
-								<option>Times New Roman, Georgia, serif</option>
-							</select>
-						</div>
-					</div>
-				</div>				
-				<div class="control-group letter-spacing-wrap">
-					<label class="control-label" for="letter-spacing">letter spacing</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-text-width"></i></span>
-							<input class="input-tiny" type="text" id="letter-spacing"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group word-spacing-wrap">
-					<label class="control-label" for="word-spacing">word spacing</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-resize-horizontal"></i></span>
-							<input class="input-tiny" type="text" id="word-spacing"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>
-				<div class="control-group text-indent-wrap">
-					<label class="control-label" for="text-indent">text indent</label>
-					<div class="controls">
-						<div class="input-append input-prepend">
-							<span class="add-on"><i class="icon-indent-left"></i></span>
-							<input class="input-tiny" type="text" id="text-indent"/>
-							<span class="add-on unit">px</span>
-						</div>
-					</div>
-				</div>				
+				<div id="empty">Add some properties to get started!</div>
 			</form>
 			<div class="live">
-				<textarea rows="3"></textarea>
+				<textarea rows="3">This is where your CSS will appear</textarea>
 			</div>
 			<div class="clear">&nbsp;</div>
 		</div>
@@ -209,6 +52,7 @@
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/bootstrap-select.min.js"></script>
 	<script src="/js/bootstrap-colorpicker.js"></script>
+	<script src="/js/bootstrap-prompts-alert.js"></script>
 	<script src="/js/script.js"></script>
 </body>
 </html>

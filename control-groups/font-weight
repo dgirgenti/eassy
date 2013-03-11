@@ -1,0 +1,14 @@
+<label class="control-label" for="font-weight">font weight</label>
+<div class="controls">
+<div class="input-prepend btn-group">
+<span class="add-on"><i class="icon-bold"></i></span>
+<select class="selectpicker span2 input-small" id="font-weight">
+<option selected>normal</option>
+<option>bold</option>
+<option>bolder</option>
+<option>thin</option>
+<option>thinner</option>
+</select>
+</div>
+</div>
+<a href="#" class="minus"><i class="icon-remove-sign"></i></a>

@@ -1,0 +1,9 @@
+<label class="control-label" for="padding">padding</label>
+<div class="controls">
+<div class="input-append input-prepend">
+<span class="add-on"><i class="icon-indent-left"></i></span>
+<input class="input-tiny" type="text" id="padding"/>
+<span class="add-on unit">px</span>
+</div>
+</div>
+<a href="#" class="minus"><i class="icon-remove-sign"></i></a>

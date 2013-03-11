@@ -1,0 +1,17 @@
+<label class="control-label" for="border-width">border</label>
+<div class="controls">
+<div class="input-append btn-group input-prepend">
+<span class="add-on"><i class="icon-edit"></i></span>
+<input class="input-tiny" type="text" id="border-width"/>
+<span class="add-on unit">px</span>
+<select class="selectpicker span1 input-small" id="border-style">
+<option value="">Style</option>
+<option value="solid">Solid</option>
+<option value="dotted">Dotted</option>
+<option value="dashed">Dashed</option>
+</select>
+<input class="colorpicker input-small" type="text" id="border-color" />
+<span class="add-on color">&nbsp;</span>
+</div>
+</div>
+<a href="#" class="minus"><i class="icon-remove-sign"></i></a>

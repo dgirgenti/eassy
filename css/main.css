@@ -39,15 +39,32 @@ h1 {
 	border-radius: 10px;
 	padding: 25px;
 	margin-bottom: 25px;
+	position:relative;
+}
+.add-wrap {
+	position: absolute;
+	top: 25px;
+	left: 26px;
+}
+#empty {
+	padding-left: 62px;
 }
 form {
 	width: 55%;
 	display: block;
 	float: left;
+	margin-top: 34px;
+}
+form ::selection {
+	background-color: rgba(255,255,255,0);
 }
 form label {
 	text-transform: capitalize;
 	font-weight: bold;
+}
+.dropdown-menu>li>a,
+.bootstrap-select.btn-group .btn .filter-option {
+	text-transform: capitalize;
 }
 form label:after {
 	content: " :";
@@ -74,6 +91,9 @@ form .control-group:hover .minus{
 }
 .form-horizontal .controls {
 	margin-left: 150px;
+}
+optgroup,dt {
+	text-transform: uppercase;
 }
 form input, 
 .input-prepend input, 
@@ -110,10 +130,13 @@ select {
 	width: 43%;
 }
 .live textarea {
-	width: 100%;
-	min-width: 100px;
-	max-width: 100%;
-	min-height: 176px;
+	resize: none;
+	position:absolute;
+	top:25px;
+	bottom:25px;
+	right:25px;
+	width: 40%;
+	max-height: 400px;
 }
 
 #test {

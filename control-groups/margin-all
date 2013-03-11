@@ -1,0 +1,12 @@
+<label class="control-label" for="margin-top">margin</label>
+<div class="controls">
+<div class="input-append input-prepend">
+<span class="add-on"><i class="icon-fullscreen"></i></span>
+<input class="input-tiny" type="text" id="margin-top"/>
+<input class="input-tiny" type="text" id="margin-right"/>
+<input class="input-tiny" type="text" id="margin-bottom"/>
+<input class="input-tiny" type="text" id="margin-left"/>
+<span class="add-on unit">px</span>
+</div>
+</div>
+<a href="#" class="minus"><i class="icon-remove-sign"></i></a>

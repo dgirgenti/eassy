@@ -1,0 +1,9 @@
+<label class="control-label" for="letter-spacing">letter spacing</label>
+<div class="controls">
+<div class="input-append input-prepend">
+<span class="add-on"><i class="icon-text-width"></i></span>
+<input class="input-tiny" type="text" id="letter-spacing"/>
+<span class="add-on unit">px</span>
+</div>
+</div>
+<a href="#" class="minus"><i class="icon-remove-sign"></i></a>
