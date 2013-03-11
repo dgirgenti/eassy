@@ -87,9 +87,9 @@
 							<span class="add-on unit">px</span>
 						</div>
 					</div>
-				</div>				
+				</div>
 				<div class="control-group border-radius-wrap">
-					<label class="control-label" for="border-radius">border-radius</label>
+					<label class="control-label" for="border-radius">border radius</label>
 					<div class="controls">
 						<div class="input-append input-prepend">
 							<span class="add-on"><i class="icon-edit"></i></span>
@@ -115,6 +115,87 @@
 							<span class="add-on color">&nbsp;</span>
 						</div>
 					</div>
+				</div>
+				<div class="control-group font-size-wrap">
+					<label class="control-label" for="font-size">font size</label>
+					<div class="controls">
+						<div class="input-append input-prepend">
+							<span class="add-on"><i class="icon-text-height"></i></span>
+							<input class="input-tiny" type="text" id="font-size"/>
+							<span class="add-on unit">px</span>
+						</div>
+					</div>
+				</div>
+				<div class="control-group color-wrap">
+					<label class="control-label" for="color">font color</label>
+					<div class="controls">
+						<div class="input-prepend input-append">
+							<span class="add-on"><i class="icon-pencil"></i></span>
+							<input class="colorpicker input-small" type="text" id="color" />
+							<span class="add-on color">&nbsp;</span>
+						</div>
+					</div>
+				</div>
+				<div class="control-group font-weight-wrap">
+					<label class="control-label" for="font-weight">font weight</label>
+					<div class="controls">
+						<div class="input-prepend btn-group">
+							<span class="add-on"><i class="icon-bold"></i></span>
+							<select class="selectpicker span2 input-small" id="font-weight">
+								<option></option>
+								<option>normal</option>
+								<option>bold</option>
+								<option>bolder</option>
+								<option>thin</option>
+								<option>thinner</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="control-group font-family-wrap">
+					<label class="control-label" for="font-family">font family</label>
+					<div class="controls">
+						<div class="input-prepend btn-group">
+							<span class="add-on"><i class="icon-font"></i></span>
+							<select class="selectpicker" id="font-family">
+								<option></option>
+								<option>Arial, Helvetica, sans-serif</option>
+								<option>Helvetica, Arial, sans-serif</option>
+								<option>"Helvetica Neue", Helvetica Neue, Helvetica, Arial, sans-serif</option>
+								<option>Times New Roman, Georgia, serif</option>
+							</select>
+						</div>
+					</div>
+				</div>				
+				<div class="control-group letter-spacing-wrap">
+					<label class="control-label" for="letter-spacing">letter spacing</label>
+					<div class="controls">
+						<div class="input-append input-prepend">
+							<span class="add-on"><i class="icon-text-width"></i></span>
+							<input class="input-tiny" type="text" id="letter-spacing"/>
+							<span class="add-on unit">px</span>
+						</div>
+					</div>
+				</div>
+				<div class="control-group word-spacing-wrap">
+					<label class="control-label" for="word-spacing">word spacing</label>
+					<div class="controls">
+						<div class="input-append input-prepend">
+							<span class="add-on"><i class="icon-resize-horizontal"></i></span>
+							<input class="input-tiny" type="text" id="word-spacing"/>
+							<span class="add-on unit">px</span>
+						</div>
+					</div>
+				</div>
+				<div class="control-group text-indent-wrap">
+					<label class="control-label" for="text-indent">text indent</label>
+					<div class="controls">
+						<div class="input-append input-prepend">
+							<span class="add-on"><i class="icon-indent-left"></i></span>
+							<input class="input-tiny" type="text" id="text-indent"/>
+							<span class="add-on unit">px</span>
+						</div>
+					</div>
 				</div>				
 			</form>
 			<div class="live">
@@ -125,7 +206,7 @@
 		</div>
 		<div class="class-wrap">
 			<strong>Example :</strong><br/><br/>
-			<div id="test">&nbsp;</div>
+			<div id="test">This is what your target might look like</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

@@ -11,10 +11,10 @@ Eassy.Index = $(document).ready(function() {
 			$(this).val(rgbastring)
 			$(this).trigger('change')
 		})
-	$('form').change(function() {
+	$('form').on('change', function() {
 		$('.live textarea').val(Eassy.parseCSS(Eassy.getCSSJSON()))
 	})
-	$('#units').click(function() {
+	$('#units').on('click', function() {
 		$('.add-on.unit').each(function() {
 			if ($(this).html() == "em") $(this).html("px")
 			else if ($(this).html() == "px") $(this).html("em")
@@ -23,12 +23,21 @@ Eassy.Index = $(document).ready(function() {
 		return false
 	})
 	$('.control-group').not('.selector-wrap').each(function() {
-		$(this).append('<a href="#" class="minus">x</a>')
+		$(this).append('<a href="#" class="minus"><i class="icon-remove-sign"></i></a>')
 	})
-	$('.minus').on('click', function() {
-		$(this).parent().remove()
-		$('form').trigger('change')
-		return false
+	$('.minus').on({
+		click: function() {
+			$(this).parent().remove()
+			$(this).parent().children('')
+			$('form').trigger('change')
+			return false
+		},
+		mouseenter: function () {
+			$(this).html('<i class="icon-remove-circle"></i>')
+		},
+		mouseleave: function () {
+		$(this).html('<i class="icon-remove-sign"></i>')
+		}
 	})
 });
 
@@ -59,7 +68,6 @@ Eassy.parseCSS = function (cssJSON, sass) {
 		for (j in cssJSON[i].properties) {
 			p = cssJSON[i].properties[j]
 			css += "\t" + p.prop + ": " + p.attr + ";\n"
-			$('#test').css(p.prop,p.attr)
 		}
 		if (!sass) css += "}"
 		css += "\n"
@@ -80,7 +88,7 @@ Eassy.getCSSJSON = function (form) {
 			if ($(this).is('.selectpicker,.colorpicker')) append = ""
 			props.push({
 				"prop" : $(this).attr('id'),
-				"attr" : $(this).val() + append
+				"attr" : ($(this).val()!=0)?$(this).val()+append:$(this).val()
 			})
 		}
 	})
