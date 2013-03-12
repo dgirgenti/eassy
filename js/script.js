@@ -55,6 +55,10 @@ Eassy.Index = $(function() {
 		return false
 	})
 
+	$('form').on('mouseenter mouseleave', '.minus', function() {
+		$(this).find('i').toggleClass('icon-remove-sign icon-remove-circle')
+	})
+
 	$('body').on('click', '#plus', function() {
 		val = $('#add-select').val()
 		if (val == "")
@@ -111,7 +115,10 @@ Eassy.RGBObjToString = function (rgba) {
 
 // Takes in a set of CSS JSON objects and an 
 // optional boolean to denote SASS output 
-// which defaults to false
+// which defaults to false.
+//
+// If no CSS is output, a template message
+// is returned instead
 //
 // parseCSS(cssJSON[,sass])
 //
@@ -133,7 +140,6 @@ Eassy.parseCSS = function (cssJSON, sass) {
 	else
 		return css
 }
-
 
 // Grabs all input values from given form
 // and returns the JSON representation
