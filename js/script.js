@@ -16,6 +16,15 @@ Eassy.Index = $(function() {
 	$('#add-select').selectpicker()
 	$('[rel=tooltip]').tooltip({placement:'right',html:true})
 
+	$(document).on('keypress', function(e) {
+		if(e.which == 13) {
+        $('form').trigger('change')
+        e.preventDefault()
+    		return false
+    }
+    return true
+	})
+
 	$('body').on('changeColor show hide', '.colorpicker', function(ev){
 			rgbastring = Eassy.RGBObjToString(ev.color.toRGB())
 			$(this).siblings('.add-on.color').css("background-color", rgbastring)
