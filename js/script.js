@@ -93,7 +93,7 @@ Eassy.clearExample = function() {
 Eassy.addProperty = function(prop, callback) {
 	$('form').append('<div class="control-group '+prop+'-wrap" style="display:none"></div>')
 	propWrap = $('.'+prop+'-wrap')
-	$.get("/control-groups/"+prop, function(data) {
+	$.get("control-groups/"+prop, function(data) {
 		propWrap.html(data)
 	})
 	propWrap.fadeIn(300, function() {
