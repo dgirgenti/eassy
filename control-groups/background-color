@@ -1,6 +1,6 @@
 <label class="control-label" for="background-color">background color</label>
 <div class="controls">
-<div class="input-prepend input-append">
+<div class="input-prepend input-append" rel="tooltip" title="Background Color">
 <span class="add-on"><i class="icon-tint"></i></span>
 <input class="colorpicker input-small" type="text" id="background-color" />
 <span class="add-on color">&nbsp;</span>

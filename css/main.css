@@ -8,7 +8,6 @@ body {
 	margin: 0;
 	padding: 0;
 	background: url('/img/bg.png');
-	text-shadow: 1px 1px rgba(231,231,231,0.4);
 }
 
 header {
@@ -124,6 +123,15 @@ select {
 	cursor: pointer;
 }
 
+.custom-prop {
+	margin-left: -103px;
+}
+
+.custom-attr {
+	margin-left: -1px !important;
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
 
 .live {
 	float: right;

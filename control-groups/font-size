@@ -1,6 +1,6 @@
 <label class="control-label" for="font-size">font size</label>
 <div class="controls">
-<div class="input-append input-prepend">
+<div class="input-append input-prepend" rel="tooltip" title="How big do you want your text to be?">
 <span class="add-on"><i class="icon-text-height"></i></span>
 <input class="input-tiny" type="text" id="font-size"/>
 <span class="add-on unit">px</span>

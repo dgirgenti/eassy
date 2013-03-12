@@ -1,6 +1,6 @@
 <label class="control-label" for="padding-top">padding</label>
 <div class="controls">
-<div class="input-append input-prepend">
+<div class="input-append input-prepend" rel="tooltip" title="Push content in:<br />Top, Right, Bottom, Left">
 <span class="add-on"><i class="icon-indent-left"></i></span>
 <input class="input-tiny" type="text" id="padding-top"/>
 <input class="input-tiny" type="text" id="padding-right"/>

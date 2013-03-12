@@ -1,6 +1,6 @@
 <label class="control-label" for="font-weight">font weight</label>
 <div class="controls">
-<div class="input-prepend btn-group">
+<div class="input-prepend btn-group" rel="tooltip" title="Feeling a little <strong>bold</strong> today?">
 <span class="add-on"><i class="icon-bold"></i></span>
 <select class="selectpicker span2 input-small" id="font-weight">
 <option selected>normal</option>

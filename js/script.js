@@ -14,6 +14,7 @@ Eassy.Index = $(function() {
 	$('#add-select').append('<optgroup label=""><option value="" selected>add a property</option></optgroup>')
 
 	$('#add-select').selectpicker()
+	$('[rel=tooltip]').tooltip({placement:'right',html:true})
 
 	$('body').on('changeColor show hide', '.colorpicker', function(ev){
 			rgbastring = Eassy.RGBObjToString(ev.color.toRGB())
@@ -28,7 +29,7 @@ Eassy.Index = $(function() {
 		$('.live textarea').val(Eassy.parseCSS(Eassy.getCSSJSON()))
 	})
 
-	$('body').on('click', '.add-on.unit', function() {
+	$('form').on('click', '.add-on.unit', function() {
 		if ($(this).html() == "em") $(this).html("%")
 		else if ($(this).html() == "px") $(this).html("em")
 		else if ($(this).html() == "%") $(this).html("px")
@@ -36,7 +37,7 @@ Eassy.Index = $(function() {
 		return false
 	})
 
-	$('body').on('click', '.minus', function() {
+	$('form').on('click', '.minus', function() {
 		$(this).parent().fadeOut(250, function() {
 			$(this).remove()
 			if ($('form').trigger('change').children('.control-group').length == 1)
@@ -51,8 +52,9 @@ Eassy.Index = $(function() {
 			alert('You must pick a property to add')
 		else {
 			$('#empty').fadeOut(200, function() {
-				if (!$('.'+val+'-wrap').length) {
+				if (!$('.'+val+'-wrap').length || val == "custom") {
 					newProp = Eassy.addProperty(val, function() {
+						newProp.find('[rel=tooltip]').tooltip({placement:'right',html:true})
 						newProp.find('.colorpicker').colorpicker({format:"rgba"})
 						newProp.find('.selectpicker').selectpicker()
 					})
@@ -63,6 +65,18 @@ Eassy.Index = $(function() {
 	})
 });
 
+Eassy.alertCSS = function() {
+	alert(Eassy.parseCSS(Eassy.getCSSJSON()))
+}
+
+Eassy.clearExample = function() {
+	$('#test').attr('style','')
+}
+
+// Takes in a property name and a callback function
+// Calls the callback when the new property is faded in
+// Returns the new property's wrapper div
+//
 Eassy.addProperty = function(prop, callback) {
 	$('form').append('<div class="control-group '+prop+'-wrap" style="display:none"></div>')
 	propWrap = $('.'+prop+'-wrap')
@@ -105,7 +119,10 @@ Eassy.parseCSS = function (cssJSON, sass) {
 		if (!sass) css += "}"
 		css += "\n"
 	}
-	return css
+	if (css == '* {\n}\n')
+		return "This is where your CSS will appear"
+	else
+		return css
 }
 
 
@@ -117,13 +134,18 @@ Eassy.getCSSJSON = function (form) {
 	props = []
 	$('input[id!=selector],.selectpicker[id!=add-select]').each(function() {
 		if ($(this).val()) {
-			prepend = ""
 			append = $(this).siblings('.add-on.unit').html() || ""
 			if ($(this).is('.selectpicker,.colorpicker')) append = ""
-			props.push({
+			if ($(this).is('.custom-attr'))
+				props.push({
+					"prop" : $(this).siblings('.custom-prop').val() || "undefined-custom",
+					"attr" : $(this).val()
+				})
+			else if (!$(this).is('.custom-prop'))
+				props.push({
 				"prop" : $(this).attr('id'),
-				"attr" : ($(this).val()!=0)?prepend+$(this).val()+append:prepend+$(this).val()
-			})
+				"attr" : ($(this).val()!=0) ? $(this).val()+append : $(this).val()
+				})
 		}
 	})
 	return [{
@@ -153,5 +175,8 @@ Eassy.Properties = {
 		"letter-spacing": "letter spacing",
 		"word-spacing": "word spacing",
 		"text-indent": "text indent"
+	},
+	"custom" : {
+		"custom" : "custom"
 	}
 }

@@ -1,0 +1,8 @@
+<div class="controls">
+<div class="input-append" rel="tooltip" title="Know more CSS?<br />Give it a go!">
+<input class="input-small custom-prop" type="text" placeholder="custom-prop" />
+<span class="add-on"><i class="icon-question-sign"></i></span>
+<input class="input-medium custom-attr" type="text" placeholder="custom-attr" />
+</div>
+</div>
+<a href="#" class="minus"><i class="icon-remove-sign"></i></a>

@@ -1,6 +1,6 @@
 <label class="control-label" for="word-spacing">word spacing</label>
 <div class="controls">
-<div class="input-append input-prepend">
+<div class="input-append input-prepend" rel="tooltip" title="What are you, a designer?">
 <span class="add-on"><i class="icon-resize-horizontal"></i></span>
 <input class="input-tiny" type="text" id="word-spacing"/>
 <span class="add-on unit">px</span>
