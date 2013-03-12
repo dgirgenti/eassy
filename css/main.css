@@ -23,7 +23,7 @@ h1 {
 #main-wrap {
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto;
+	margin: 100px auto 0;
 }
 
 .class-wrap {
