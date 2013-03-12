@@ -7,7 +7,10 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<title>EaSSy</title>
+	<title>EaSSy&nbsp;&bull;&nbsp;Easy Stylesheets</title>
+	<meta property="og:title" content="EaSSy" />
+	<meta property="og:description" content="An easy stylesheet generator for CSS noobs" />
+
 	<link rel="stylesheet" href="css/bootstrap-select.min.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
 	
@@ -16,12 +19,21 @@
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-	<header><h1>EaSSy</h1></header>
-	<div id="main-wrap">
+	<header style="display:none">
+		<h1>EaSSy<br /><span>&quot;easy stylesheets&quot;</span></h1>
+		<div id="copyright">
+			Dan Girgenti<br /><a href="//github.com/dgirgenti/eassy">Fork me on GitHub</a>
+		</div>
+	</header>
+	<div id="main-wrap"  style="display:none">
 		<div class="class-wrap">
 			<div class="add-wrap">
 				<select class="selectpicker" id="add-select"></select>
 				<a href="#" class="btn" id="plus"><i class="icon-plus-sign"></i> Add</a>
+				<div class="btn-group" id="save-clear">
+					<button class="btn" id="save">Save Current & Clear</button>
+					<button class="btn" id="clear">Clear</button>
+				</div>
 			</div>
 			<form class="form-horizontal">
 				<div class="control-group selector-wrap">
@@ -39,9 +51,6 @@
 				<textarea rows="3">This is where your CSS will appear</textarea>
 			</div>
 			<div class="clear">&nbsp;</div>
-		</div>
-		<div id="copyright">
-			Dan Girgenti<br /><a href="//github.com/dgirgenti/eassy">Fork me on GitHub</a>
 		</div>
 	</div>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

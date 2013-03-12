@@ -3,6 +3,9 @@
 var Eassy = Eassy || {};
 
 Eassy.Index = $(function() {
+	setTimeout(function() {
+		$('#main-wrap,header').fadeIn(500)
+	}, 200)
 	// Fill the select based on whats in Eassy.Properties
 	for (group in Eassy.Properties) {
 		$('#add-select').append('<optgroup label="'+group+'">')
@@ -35,7 +38,7 @@ Eassy.Index = $(function() {
 		})
 
 	$('body').on('change', 'form', function() {
-		$('.live textarea').val(Eassy.parseCSS(Eassy.getCSSJSON()))
+		$('.live textarea').val(Eassy.CSS+Eassy.parseCSS(Eassy.getCSSJSON()))
 	})
 
 	$('form').on('click', '.add-on.unit', function() {
@@ -76,14 +79,38 @@ Eassy.Index = $(function() {
 		}
 		return false
 	})
+
+	$('body').on('click', '#save', function() {
+		cur = $('.live textarea').val()
+		if ( cur == '* {\n}\n' 
+			|| cur == 'This is where your CSS will appear'
+			|| $('.control-group').length == 1)
+			alert('Nothing worth saving')
+		else {
+			Eassy.CSS = $('.live textarea').val()
+			Eassy.clearForm()
+		}
+		return false
+	})
+
+	$('body').on('click', '#clear', Eassy.clearForm)
 });
 
-Eassy.alertCSS = function() {
-	alert(Eassy.parseCSS(Eassy.getCSSJSON()))
-}
-
-Eassy.clearExample = function() {
-	$('#test').attr('style','')
+Eassy.clearForm = function () {
+	$('.control-group').not('.selector-wrap').each(function() {
+		$(this).fadeOut(250, function() {
+			$(this).remove()
+		})
+	})
+	setTimeout(function() {
+		if (Eassy.CSS != "")
+			$('.live textarea').val(Eassy.CSS)
+		else
+			$('.live textarea').val('This is where your CSS will appear')
+	}, 250)
+	$('#selector').val("")
+	if ($('form').children('.control-group').length == 1)
+		$('#empty').fadeIn(200)
 }
 
 // Takes in a property name and a callback function
@@ -135,10 +162,7 @@ Eassy.parseCSS = function (cssJSON, sass) {
 		if (!sass) css += "}"
 		css += "\n"
 	}
-	if (css == '* {\n}\n')
-		return "This is where your CSS will appear"
-	else
-		return css
+	return css
 }
 
 // Grabs all input values from given form
@@ -195,3 +219,5 @@ Eassy.Properties = {
 		"custom" : "custom"
 	}
 }
+
+Eassy.CSS = Eassy.CSS || ""

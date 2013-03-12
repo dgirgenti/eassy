@@ -11,23 +11,39 @@ body {
 }
 
 header {
+	font-family: Open Sans, sans-serif;
 	padding:25px;
 }
 
 h1 {
-	margin: 0;
-	color: #ececec;
 	text-align: center;
+	margin: 0 auto;
+}
+h1 {
+	color: #ececec;
+	text-shadow: -1px -1px 0 rgba(16,87,74,1);
+}
+h1:hover span {
+	visibility:visible;
+}
+h1 span {
+	display: inline-block;
+	color: rgba(75,100,150,0.8);
+	font-size: 18px;
+	letter-spacing: 1px;
+	visibility: hidden;
+	text-shadow: none;
 }
 
 #main-wrap {
 	height: auto !important;
 	height: 100%;
-	margin: 100px auto 0;
+	margin: 50px auto 0;
 }
 
 .class-wrap {
 	width: 974px;
+	min-height: 256px;
 	margin: 0 auto;
 	background: #ececec;
 	box-shadow: 3px 3px 0 rgba(102, 102, 102, 0.8);
@@ -42,7 +58,11 @@ h1 {
 	left: 26px;
 }
 #empty {
-	padding-left: 62px;
+	width: 42%;
+	padding: 5px;
+	margin-top: 6px;
+	margin-left: 150px;
+	border: 2px dotted #ccc;
 }
 form {
 	width: 55%;
@@ -143,8 +163,22 @@ select {
 	max-height: 400px;
 }
 
-#test {
-	text-shadow: none;
+#plus {
+	margin-left: -5px;
+	border-radius: 5px;
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
+
+#save {
+	border-radius: 5px;
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+
+#clear {
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
 }
 
 .bootstrap-select.btn-group, .bootstrap-select.btn-group[class*="span"] {
