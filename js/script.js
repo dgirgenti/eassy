@@ -164,13 +164,13 @@ Eassy.Properties = {
 		"padding-one": "padding (#)",
 		"margin-all": "margin (#,#,#,#)",
 		"margin-one": "margin (#)",
-		"border-radius": "border radius",
-		"border": "border"
+		"border": "border",		
+		"border-radius": "border radius"
 	},
 	"text properties" : {
+		"font-family": "font",
 		"font-size": "font size",
 		"font-weight": "font weight",
-		"font-family": "font",
 		"color": "font color",
 		"letter-spacing": "letter spacing",
 		"word-spacing": "word spacing",
