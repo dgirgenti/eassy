@@ -122,10 +122,9 @@ Eassy.addProperty = function(prop, callback) {
 	propWrap = $('.'+prop+'-wrap')
 	$.get("control-groups/"+prop, function(data) {
 		propWrap.html(data)
-	})
-	propWrap.fadeIn(300, function() {
 		callback()
 	})
+	propWrap.fadeIn(300)
 	return $('.'+prop+'-wrap')
 }
 
