@@ -8,3 +8,4 @@ this is a school project and you shouldn't expect anything to work until I say s
 
 * add more properties
 * save CSS to session storage and load on startup
+
